@@ -27,6 +27,41 @@ class Module extends \yii\base\Module
     public $allowedIPs = ['127.0.0.1', '::1'];
 
     /**
+     * The view to be rendered can be specified in one of the following formats:
+     *
+     * - path alias (e.g. "@app/views/site/index");
+     * - absolute path within application (e.g. "//site/index"): the view name starts with double slashes.
+     *   The actual view file will be looked for under the [[Application::viewPath|view path]] of the application.
+     * - absolute path within module (e.g. "/site/index"): the view name starts with a single slash.
+     *   The actual view file will be looked for under the [[Module::viewPath|view path]] of [[module]].
+     * - relative path (e.g. "index"): the actual view file will be looked for under [[viewPath]].
+     *
+     * To determine which layout should be applied, the following two steps are conducted:
+     *
+     * 1. In the first step, it determines the layout name and the context module:
+     *
+     * - If [[layout]] is specified as a string, use it as the layout name and [[module]] as the context module;
+     * - If [[layout]] is null, search through all ancestor modules of this controller and find the first
+     *   module whose [[Module::layout|layout]] is not null. The layout and the corresponding module
+     *   are used as the layout name and the context module, respectively. If such a module is not found
+     *   or the corresponding layout is not a string, it will return false, meaning no applicable layout.
+     *
+     * 2. In the second step, it determines the actual layout file according to the previously found layout name
+     *    and context module. The layout name can be:
+     *
+     * - a path alias (e.g. "@app/views/layouts/main");
+     * - an absolute path (e.g. "/main"): the layout name starts with a slash. The actual layout file will be
+     *   looked for under the [[Application::layoutPath|layout path]] of the application;
+     * - a relative path (e.g. "main"): the actual layout file will be looked for under the
+     *   [[Module::layoutPath|layout path]] of the context module.
+     *
+     * If the layout name does not contain a file extension, it will use the default one `.php`.
+     *
+     * @var string $view the view name.
+     */
+    public $view = '@craa/ApiDebugger/views/default/index';
+
+    /**
      * @var string $baseModuleDir 根模块所在目录，支持绝对路径和别名
      */
     public $baseModuleDir = '@app';

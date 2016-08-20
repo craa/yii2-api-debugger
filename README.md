@@ -29,6 +29,7 @@ return [
             'allowedIPs' => ['*'],
             'baseModuleDir' => '@app',
             'baseModuleNamespace' => '\app',
+            'view' => '@craa/ApiDebugger/views/default/index',
             'versions' => [
                 '1.0.0',
             ],

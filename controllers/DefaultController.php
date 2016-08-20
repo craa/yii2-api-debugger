@@ -35,10 +35,10 @@ class DefaultController extends \yii\web\Controller
     {
         $docParseService = new DocParseService($this->module->baseModuleDir, $this->module->baseModuleNamespace);
         $moduleDocs = $docParseService->getModuleDocs();
-        if (empty($moduleDocs)) throw new Yii\base\Exception(sprintf('未检测到模块'));
+        if (empty($moduleDocs)) throw new \yii\base\Exception(sprintf('未检测到模块'));
         $actionDoc = $docParseService->findActionDoc($moduleDocs, $module, $controllerId, $actionId);
 
-        return $this->render('index', [
+        return $this->render($this->module->view, [
             'moduleDocs' => $moduleDocs,
             'actionDoc' => $actionDoc,
             'apiDebugger' => $this->module
