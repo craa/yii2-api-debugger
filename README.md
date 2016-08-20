@@ -1,29 +1,40 @@
 # Yii2 API Debugger
 
-**Yii2-API-Debugger** 是Yii2框架下支持自动生成文档的API调试模块，使用 **ReflectionClass** 与 **BootStrap**，通过够循环遍历**Yii2**的模块，提取`module``controller``action`的注释生成API菜单和文档，并且自动构建当前API请求表单，调试人员可以修改参数调用并查看返回结果。
+**Yii2-API-Debugger** 是Yii2框架下支持自动生成文档的API调试模块，使用 **ReflectionClass** 与 **BootStrap**，通过提取`module``controller``action`的注释生成API菜单和文档，并且自动构建当前API请求表单，调试人员可以修改参数调用并查看返回结果。
 
 
 
 ## 安装
-- 设置模块别名
+
+- composer
+```bash
+composer require "craa/yii2-api-debugger" "~1.0.0"
+```
+
+- 手动安装
 
 ```php
 Yii::setAlias('@craa/ApiDebugger', '@app/yourpath/craa/api-debugger');
 ```
-- 配置模块
+## 配置
 
 ```php
-$config['modules']['api'] = [
-        'class' => 'craa\ApiDebugger\Module',
-        'name' => '接口调试系统',
-        'password' => '123',
-        'allowedIPs' => ['*'],
-        'baseModuleDir' => '@app',
-        'baseModuleNamespace' => '\app',
-        'versions' => [
-            '1.0.0',
-        ],
-    ];
+return [
+    //...
+    'modules' => [
+        'api' => [
+            'class' => 'craa\ApiDebugger\Module',
+            'name' => '接口调试系统',
+            'password' => '123',
+            'allowedIPs' => ['*'],
+            'baseModuleDir' => '@app',
+            'baseModuleNamespace' => '\app',
+            'versions' => [
+                '1.0.0',
+            ],
+        ];
+    ]
+];
 ```
 
 ## 注释规范
