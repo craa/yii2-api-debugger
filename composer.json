@@ -1,0 +1,22 @@
+{
+  "name": "craa/yii2-api-debugger",
+  "type": "yii2-extension",
+  "description": "api-debugger extension for the Yii framework",
+  "keywords": ["api","api-debugger","yii2"],
+  "homepage": "https://github.com/craa/yii2-api-debugger",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Hongwei Chen",
+      "email": "crains@qq.com"
+    }
+  ],
+  "require": {
+    "yiisoft/yii2": ">=2.0.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "craa\\ApiDebugger": ""
+    }
+  }
+}
