@@ -15,9 +15,9 @@ class apiAsset extends \yii\web\AssetBundle
         'jsonFormater/jsonFormater.css',
     ];
     public $js = [
+        'js/jquery.min.js',
         'bootstrap-3.2.0/dist/js/bootstrap.min.js',
         'jsonFormater/jsonFormater.js',
-        'js/jquery.min.js',
         'js/jquery.form.js',
         'js/hashes.js',
     ];
