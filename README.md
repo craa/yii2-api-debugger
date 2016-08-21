@@ -22,7 +22,7 @@ Yii::setAlias('@craa/ApiDebugger', '@app/yourpath/craa/api-debugger');
 return [
     //...
     'modules' => [
-        'api' => [
+        'api-debugger' => [
             'class' => 'craa\ApiDebugger\Module',
             'name' => '接口调试系统',
             'password' => '123',
@@ -48,6 +48,12 @@ return [
         ],
     ]
 ];
+```
+
+然后就可以通过以下URL访问 API-Debugger:
+
+```
+http://localhost/path/to/index.php?r=api-debugger
 ```
 
 ## 注释规范
