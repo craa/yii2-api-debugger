@@ -1,12 +1,19 @@
 <?php
 /**
- * @link https://github.com/craa/weixin-sdk
+ * @link https://github.com/craa/yii2-api-debugger
  */
 
 namespace craa\ApiDebugger\models;
 
 use craa\ApiDebugger\components\ApiDoc;
 
+/**
+ * 控制器注解模型
+ * Class ControllerDoc
+ *
+ * @author Chen Hongwei <crains@qq.com>
+ * @since 1.0
+ */
 class ControllerDoc extends ApiDoc
 {
     /**

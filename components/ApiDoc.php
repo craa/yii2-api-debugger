@@ -1,13 +1,17 @@
 <?php
 /**
- *
- * Author: chenhongwei <chenhw@mysoft.com.cn>
- * Time: 2016/7/21 14:54
+ * @link https://github.com/craa/yii2-api-debugger
  */
 
 namespace craa\ApiDebugger\components;
 
-
+/**
+ * 注解基础模型
+ * Class ApiDoc
+ *
+ * @author Chen Hongwei <crains@qq.com>
+ * @since 1.0
+ */
 class ApiDoc
 {
     /**

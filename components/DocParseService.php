@@ -1,8 +1,6 @@
 <?php
 /**
- *
- * Author: chenhongwei <chenhw@mysoft.com.cn>
- * Time: 2016/7/21 14:03
+ * @link https://github.com/craa/yii2-api-debugger
  */
 
 namespace craa\ApiDebugger\components;
@@ -157,7 +155,7 @@ class DocParseService
             //检测是否开启
             if (!$moduleDoc->getEnable()) continue;
 
-            if (empty($moduleDoc->getName())) throw new Yii\base\Exception(sprintf('模块[%s]缺少注解属性name', $subModuleId));
+            if (empty($moduleDoc->getName())) throw new Exception(sprintf('模块[%s]缺少注解属性name', $subModuleId));
 
             $moduleDoc->setControllers($this->getControllerDocs($subModuleNamespace, $moduleDoc));
 

@@ -1,12 +1,17 @@
 <?php
 /**
- * Created by PhpStorm.
- * User: chenhongwei
- * Date: 2015/5/25
- * Time: 16:35
+ * @link https://github.com/craa/yii2-api-debugger
  */
+
 namespace craa\ApiDebugger\assets;
 
+/**
+ * 前端资源
+ * Class apiAsset
+ *
+ * @author Chen Hongwei <crains@qq.com>
+ * @since 1.0
+ */
 class apiAsset extends \yii\web\AssetBundle
 {
     public $sourcePath = __DIR__;

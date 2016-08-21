@@ -2,10 +2,10 @@
 use \yii\helpers\Html;
 
 /**
+ * @var \yii\web\View $this
  * @var \craa\ApiDebugger\models\ModuleDoc[] $moduleDocs 所有模块
  * @var \craa\ApiDebugger\models\ActionDoc $actionDoc 当前action
  * @var \craa\ApiDebugger\Module $apiDebugger API调试模块
- *
  */
 ?>
 
@@ -43,7 +43,7 @@ use \yii\helpers\Html;
     <div class="row">
         <div class="col-md-2">
             <!-- 左侧菜单 -->
-            <?= $this->renderAjax('_left_menu', ['moduleDoc' => $actionDoc->getRootModule(), 'actionDoc' => $actionDoc]); ?>
+            <?= $this->render('@craa/ApiDebugger/views/default/_left_menu', ['moduleDoc' => $actionDoc->getRootModule(), 'actionDoc' => $actionDoc]); ?>
         </div>
 
         <div id="outputPanel" class="col-md-5">
