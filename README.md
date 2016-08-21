@@ -36,7 +36,7 @@ return [
                     'url' => 'http://github.com/craa/yii2-api-debugger',
                     'options' => [
                         'target' => '_blank',
-                    ],
+                    ]
                 ],
             ],
             'platforms' => [
@@ -44,8 +44,8 @@ return [
             ],
             'versions' => [
                 '1.0.0',
-            ],
-        ];
+            ]
+        ],
     ]
 ];
 ```
