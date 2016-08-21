@@ -30,6 +30,18 @@ return [
             'baseModuleDir' => '@app',
             'baseModuleNamespace' => '\app',
             'view' => '@craa/ApiDebugger/views/default/index',
+            'links' => [
+                [
+                    'text' => '<b>WIKI</b>',
+                    'url' => 'http://github.com/craa/yii2-api-debugger',
+                    'options' => [
+                        'target' => '_blank',
+                    ],
+                ],
+            ],
+            'platforms' => [
+                'iOS',
+            ],
             'versions' => [
                 '1.0.0',
             ],

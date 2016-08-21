@@ -72,6 +72,30 @@ class Module extends \yii\base\Module
     public $baseModuleNamespace = 'app';
 
     /**
+     * 在导航中加入自定义链接
+     *
+     * [
+     *     [
+     *         'text' => 'wiki',
+     *         'url' => 'http://github.com/craa/yii2-api-debugger',
+     *         'options' => [
+     *             'target' => '_blank',
+     *         ],
+     *     ],
+     *     ...
+     * ]
+     *
+     * @var array
+     * @see \yii\helpers\Html::a()
+     */
+    public $links = [];
+
+    /**
+     * @var array $platforms 平台列表
+     */
+    public $platforms = ['iOS'];
+
+    /**
      * @var array $versions 版本列表
      */
     public $versions = ['1.0.0'];

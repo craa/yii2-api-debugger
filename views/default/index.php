@@ -7,6 +7,9 @@ use \yii\helpers\Html;
  * @var \craa\ApiDebugger\models\ActionDoc $actionDoc 当前action
  * @var \craa\ApiDebugger\Module $apiDebugger API调试模块
  */
+
+$this->title = $apiDebugger->name;
+
 ?>
 
 <div class="row-fluid">
@@ -32,9 +35,9 @@ use \yii\helpers\Html;
                 </ul>
 
                 <ul class="nav navbar-nav navbar-right">
-                    <!--<li><a href="/wiki/" title="wiki" target="_blank"><b class="text-danger">WIKI</b></a></li>-->
-                    <li><a href="https://git.mysoft.com.cn/mic/mingjian-webservice/wikis/home" title="wiki"
-                           target="_blank"><b class="text-danger">WIKI</b></a></li>
+                    <?php foreach ($apiDebugger->links as $link): ?>
+                        <?=Html::tag('li', Html::a($link['text'], $link['url'], $link['options']))?>
+                    <?php endforeach; ?>
                 </ul>
             </div>
         </nav>
@@ -66,9 +69,10 @@ use \yii\helpers\Html;
                                     <select class="form-control"
                                             name="c_platform"
                                             id="loginForm-platform">
-                                        <option value="iOS">iOS</option>
-                                        <option value="Android">Android</option>
-                                        <option value="H5">H5</option>
+                                        <?php foreach ($apiDebugger->platforms as $i => $platform): ?>
+                                            <option
+                                                value="<?= $platform ?>" <?= $i === 0 ? 'selected' : '' ?>><?= $platform ?></option>
+                                        <?php endforeach; ?>
                                     </select>
                                 </div>
                             </div>
