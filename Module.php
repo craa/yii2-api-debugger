@@ -115,7 +115,12 @@ class Module extends \yii\base\Module
             'user' => [
                 'class' => 'yii\web\User',
                 'identityClass' => 'craa\ApiDebugger\models\User',
-                'loginUrl' => \Yii::$app->urlManager->createUrl($this->id . '/default/login'),
+                'enableAutoLogin' => true,
+                'identityCookie' => ['name' => 'ad_identity', 'httpOnly' => true],
+                'idParam' => 'ad__id',
+                'authTimeoutParam' => 'ad__expire',
+                'returnUrlParam' => 'ad__returnUrl',
+                'loginUrl' => [$this->id . '/default/login'],
             ],
         ]);
     }

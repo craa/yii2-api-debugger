@@ -17,7 +17,7 @@ class DefaultController extends \yii\web\Controller
         if (isset($_POST['LoginForm'])) {
             $model->attributes = $_POST['LoginForm'];
             if ($model->validate() && $model->login())
-                $this->redirect(Yii::$app->urlManager->createUrl($this->module->id . '/default/index'));
+                $this->redirect(Yii::$app->user->getReturnUrl([$this->module->id.'/default/index']));
         }
         return $this->render('login', array('model' => $model));
     }
