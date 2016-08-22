@@ -222,7 +222,7 @@ class DocParseService
 
     /**
      * 查找actionDoc
-     * @param $moduleDocs
+     * @param ModuleDoc[] $moduleDocs
      * @param $moduleNamespace
      * @param $controllerId
      * @param $actionId
@@ -238,8 +238,12 @@ class DocParseService
         }
         
         $controllers = $moduleDoc->getControllers();
-        if(empty($controllerId) && !empty($controllers)){
-            $controllerDoc = current($controllers);
+        if(empty($controllerId)){
+            if(!empty($controllers)){
+                $controllerDoc = current($controllers);
+            }else{
+                return $this->findActionDoc($moduleDoc->getModules(), null, null, null);
+            }
         }else{
             if(!isset($controllers[$controllerId])){
                 throw new Exception(sprintf('controller [%s] 不存在', $controllerId));
@@ -249,7 +253,7 @@ class DocParseService
         
         $actions = $controllerDoc->getActions();
         if(empty($actionId) && !empty($actions)){
-            $actionDoc = current($actions); 
+            $actionDoc = current($actions);
         }else{
             if(!isset($actions[$actionId])){
                 throw new Exception(sprintf('action [%s] 不存在', $actionId));
