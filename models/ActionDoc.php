@@ -164,7 +164,7 @@ class Param
 
     public function __construct($paramInfo)
     {
-        preg_match('/(\w+) (\$\w+) ?(\[.+\])? ([^ ]*) ?(.*)?/u', $paramInfo, $part);
+        preg_match('/([\-_\w]+) (\$\w+) ?(\[.+\])? ([^ ]*) ?(.*)?/u', $paramInfo, $part);
         if (!empty($part[1])) $this->type = $part[1];
         if (!empty($part[2])) $this->name = str_replace('$', '', $part[2]);
         if (!empty($part[3])) $this->default = trim($part[3], '[]');

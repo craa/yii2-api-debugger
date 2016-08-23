@@ -103,12 +103,16 @@ class DefaultController extends Controller
 - **function** 接口功能描述
 - **param** 接口参数，该值可重复添加
 
-        格式为`@param string $uid [3179827723] 用户ID 某某平台用户ID，10位字符串`
-        *string* 表示参数类型，必填
-        *$uid* 表示参数名，必填
-        *[3179827723]* 大括号里的值为参数默认值，选填
-        *用户ID* 参数简介，选填
-        * 某某平台用户ID，10位字符串* 参数详情，选填
+    格式为`@param string $uid [3179827723] 用户ID 某某平台用户ID，10位字符串`
+    - *参数类型*：必填，例:`string`
+        - -file- 上传文件
+        - int 上传文本
+        - string 上传文本
+    - *参数名称*：必填，例:`$uid`
+    - *默认值*：大括号里的值为参数默认值，选填，例:`[3179827723]`
+    - *参数简介*：选填，例:`'用户ID`
+    - *参数详情*：选填，例:`'某某平台用户ID，10位字符串`
+
 
 - **return** 接口返回值描述，支持多行
 - **exception** 接口异常信息描述，支持多行
@@ -116,26 +120,26 @@ class DefaultController extends Controller
 示例：
 
 ```php
-/**
-     * 获取用户基本信息
-     * @name 用户信息
+    /**
+     * @name 上传用户基本信息
      * @enable true
-     * @method GET
+     * @method POST
      * @version >=2.1.0
-     * @function 通过uid/sid获取xx平台用户信息
+     * @function 上传平台用户信息
      * @param int $uid [100] 用户ID XX平台用户ID
      * @param string $sid 会话ID
+     * @param string $name 姓名
+     * @param int $age 年龄 
+     * @param -file- $headImg 头像 上传用户头像
      * @return
      * {
      *     "result": true,
      *     "data": {
-     *         "name": "张三",
-     *         "age": "26"
      *     }
      * }
      * @exception
      * 10001 用户不存在
      * 10002 会话已失效
      */
-    public function actionBasicInfo()
+    public function actionUpdateInfo()
 ```

@@ -36,7 +36,7 @@ $this->title = $apiDebugger->name;
 
                 <ul class="nav navbar-nav navbar-right">
                     <?php foreach ($apiDebugger->links as $link): ?>
-                        <?=Html::tag('li', Html::a($link['text'], $link['url'], $link['options']))?>
+                        <?= Html::tag('li', Html::a($link['text'], $link['url'], $link['options'])) ?>
                     <?php endforeach; ?>
                 </ul>
             </div>
@@ -94,8 +94,14 @@ $this->title = $apiDebugger->name;
                                 <div class="form-group">
                                     <?= Html::label($param->getBrief(), "param-{$i}-{$param->getName()}", ['class' => 'col-sm-2 control-label']) ?>
                                     <div class="col-sm-9">
-                                        <?= Html::textInput($param->getName(), $param->getDefault(),
-                                            ['class' => 'form-control', 'id' => "param-{$i}-{$param->getName()}", 'placeholder' => $param->getType() . ' ' . $param->getName()]);
+                                        <?php
+                                        if ($param->getType() == '-file-') {
+                                            echo Html::fileInput($param->getName(), $param->getDefault(),
+                                                ['id' => "param-{$i}-{$param->getName()}"]);
+                                        } else {
+                                            echo Html::textInput($param->getName(), $param->getDefault(),
+                                                ['class' => 'form-control', 'id' => "param-{$i}-{$param->getName()}", 'placeholder' => $param->getType() . ' ' . $param->getName()]);
+                                        }
                                         ?>
                                     </div>
                                 </div>
@@ -222,7 +228,9 @@ $this->title = $apiDebugger->name;
             $('#invokeForm').ajaxSubmit({
                 success: function (resp) {
                     try {
-                        JSON.parse(resp);
+                        if (typeof resp == "string") {
+                            JSON.parse(resp);
+                        }
                         new JsonFormater({
                             dom: '#result',
                             imgCollapsed: folder + "/jsonFormater/images/Collapsed.gif",
@@ -232,7 +240,7 @@ $this->title = $apiDebugger->name;
                         $("#result").html(resp);
                     }
                 },
-                error: function (xhr, status, error) {
+                error: function (xhr) {
                     console.log(xhr);
                     var warn = $('<div class="alert alert-danger" role="alert"><strong>' + xhr.status + '</strong>, '
                         + xhr.statusText + '</div><div>' + xhr.responseText + '</div>');
