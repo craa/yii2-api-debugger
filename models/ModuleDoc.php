@@ -55,5 +55,15 @@ class ModuleDoc extends ApiDoc
         $this->controllers = $controllers;
     }
 
+    public function getRoute()
+    {
+        $ns = $this->getReflection()->getName();
+        $id = str_replace(['modules','Module'], '', $ns);
+        $id = str_replace(['//', '\\\\'], '/', $id);
+        $id = trim($id, '/\\');
+        $id = substr($id, strpos($id, '/')+1);
+        $c = \Yii::$app->getModule($id);
+        return $c->getUniqueId();
+    }
 
 }
