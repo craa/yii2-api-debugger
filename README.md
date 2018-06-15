@@ -103,14 +103,14 @@ class DefaultController extends Controller
 - **function** 接口功能描述
 - **param** 接口参数，该值可重复添加
 
-    格式为`@param string $uid [3179827723] 用户ID 某某平台用户ID，10位字符串`
+    格式为`@param string $uid 用户ID (123) 某某平台用户ID，10位字符串`
     - *参数类型*：必填，例:`string`
         - -file- 上传文件
         - int 上传文本
         - string 上传文本
     - *参数名称*：必填，例:`$uid`
-    - *默认值*：大括号里的值为参数默认值，选填，例:`[3179827723]`
-    - *参数简介*：选填，例:`'用户ID`
+    - *参数简介*：选填，例:`'用户ID`   
+    - *默认值*：小括号里的值为参数默认值，选填，例:`(123)`
     - *参数详情*：选填，例:`'某某平台用户ID，10位字符串`
 
 
@@ -131,15 +131,19 @@ class DefaultController extends Controller
      * @param string $name 姓名
      * @param int $age 年龄 
      * @param -file- $headImg 头像 上传用户头像
-     * @return
-     * {
-     *     "result": true,
-     *     "data": {
-     *     }
-     * }
+     * @param string steps json字符串 
+     * @param string userList json字符串 
+     * @paramDetail
+     * ===steps json字符串
+     * string title 审批节点名称
+     * string approver_id 审批用户id
+     * string sort 审批步骤
+     * ===userList json字符串
+     * string name 姓名
+     * string sex 性别
+     * int sort 排序
      * @exception
-     * 10001 用户不存在
-     * 10002 会话已失效
+     */
      */
     public function actionUpdateInfo()
 ```
