@@ -142,6 +142,14 @@ class DefaultController extends Controller
      * string name 姓名
      * string sex 性别
      * int sort 排序
+     * @return
+     * ===data
+     * string uid 用户id
+     * int sex 用户性别
+     * array recordList 购物清单
+     * ===recordList
+     * int orderId 订单id
+     * string ctime 购物时间
      * @exception
      */
      */
