@@ -37,7 +37,6 @@ class DefaultController extends \yii\web\Controller
         $moduleDocs = $docParseService->getModuleDocs();
         if (empty($moduleDocs)) throw new \yii\base\Exception(sprintf('未检测到模块'));
         $actionDoc = $docParseService->findActionDoc($moduleDocs, $module, $controllerId, $actionId);
-
         return $this->render($this->module->view, [
             'moduleDocs' => $moduleDocs,
             'actionDoc' => $actionDoc,

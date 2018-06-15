@@ -1,9 +1,5 @@
 # Yii2 API Debugger
 
-[![Latest Stable Version](https://poser.pugx.org/craa/yii2-api-debugger/v/stable)](https://packagist.org/packages/craa/yii2-api-debugger)
-[![Total Downloads](https://poser.pugx.org/craa/yii2-api-debugger/downloads)](https://packagist.org/packages/craa/yii2-api-debugger)
-[![License](https://poser.pugx.org/craa/yii2-api-debugger/license)](https://packagist.org/packages/craa/yii2-api-debugger)
-
 **Yii2-API-Debugger** 是Yii2框架下支持自动生成文档的API调试模块，使用 **ReflectionClass** 与 **BootStrap**，通过提取`module``controller``action`的注释生成API菜单和文档，并且自动构建当前API请求表单，调试人员可以修改参数调用并查看返回结果。
 
 

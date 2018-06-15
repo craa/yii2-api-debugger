@@ -2,7 +2,7 @@
 
 namespace craa\ApiDebugger\models;
 
-class User extends \yii\base\Component implements \yii\web\IdentityInterface
+class User extends \yii\base\Object implements \yii\web\IdentityInterface
 {
     public $id;
     public $username;

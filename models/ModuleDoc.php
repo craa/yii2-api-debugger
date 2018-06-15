@@ -6,6 +6,7 @@
 namespace craa\ApiDebugger\models;
 
 use craa\ApiDebugger\components\ApiDoc;
+use yii\log\Logger;
 
 /**
  * 模块注解模型
@@ -62,8 +63,14 @@ class ModuleDoc extends ApiDoc
         $id = str_replace(['//', '\\\\'], '/', $id);
         $id = trim($id, '/\\');
         $id = substr($id, strpos($id, '/')+1);
-        $c = \Yii::$app->getModule($id);
-        return $c->getUniqueId();
+
+        try{
+            if($id){
+                $c = \Yii::$app->getModule($id);
+                return $c?$c->getUniqueId():"";
+            }
+        }catch (\Exception $e){
+        }
     }
 
 }
