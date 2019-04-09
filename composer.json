@@ -1,5 +1,5 @@
 {
-  "name": "craa/yii2-api-debugger",
+  "name": "yii2-dev/yii2-api-debugger",
   "type": "yii2-extension",
   "description": "api-debugger extension for the Yii framework",
   "keywords": ["api","api-debugger","yii2"],
