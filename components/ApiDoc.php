@@ -88,7 +88,7 @@ class ApiDoc
      */
     public function getName()
     {
-        return $this->name ? $this->name : $this->getId();
+        return $this->name ? $this->name."-".$this->getId() : $this->getId();
     }
 
     /**

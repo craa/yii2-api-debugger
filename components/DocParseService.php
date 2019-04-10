@@ -140,6 +140,7 @@ class DocParseService
         $dirs = scandir($moduleDir);
 
         foreach ($dirs as $subModuleId) {
+            if($subModuleId=='ControllerBase.php') continue;
             if (strpos($subModuleId, '.') === 0) continue;
 
             $subModuleNamespace = $moduleNamespace . '\\modules\\' . $subModuleId;
@@ -252,6 +253,7 @@ class DocParseService
         }
         
         $actions = $controllerDoc->getActions();
+
         if(empty($actionId) && !empty($actions)){
             $actionDoc = current($actions);
         }else{
